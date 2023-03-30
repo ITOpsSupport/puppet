@@ -7,3 +7,11 @@ Install custom rpm package "BESAgent-10.0.8.37-rhe6.x86_64.rpm" on server using 
 		2. copy masthead.afxm to /etc/opt/BESClient/
 
 	b.  the package "BESAgent-10.0.8.37-rhe6.x86_64.rpm" and file "actionsite.afxm" is preasent in puppet master in location /opt/
+
+#############
+to validate pp
+$ puppet parser validate install_besagent.pp 
+to run locally # make sure package & file is available in /opt
+$ puppet apply install_besagent.pp
+to run from master 
+$ puppet agent -t
