@@ -5,17 +5,17 @@ class besagent {
     group  => 'root',
     mode   => '0755',
   }
-  file { '/etc/opt/BESClient/masthead.afxm':
+  file { '/etc/opt/BESClient/actionsite.afxm':
     ensure => 'file',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => '/opt/masthead.afxm',
+    source => '/opt/actionsite.afxm',
   }
   package { 'BESAgent':
     ensure    => installed,
     source    => '/opt/BESAgent-10.0.8.37-rhe6.x86_64.rpm',
-    require   => [File['/etc/opt/BESClient/'], File['/etc/opt/BESClient/masthead.afxm']],
+    require   => [File['/etc/opt/BESClient/'], File['/etc/opt/BESClient/actionsite.afxm']],
     provider  => 'rpm',
     allowcdrom => true,
   }
