@@ -13,15 +13,15 @@ class besagent {
     source => '/opt/actionsite.afxm',
   }
   package { 'BESAgent':
-    ensure    => installed,
-    source    => '/opt/BESAgent-10.0.8.37-rhe6.x86_64.rpm',
-    require   => [File['/etc/opt/BESClient/'], File['/etc/opt/BESClient/actionsite.afxm']],
-    provider  => 'rpm',
+    ensure     => installed,
+    source     => '/opt/BESAgent-10.0.8.37-rhe6.x86_64.rpm',
+    require    => [File['/etc/opt/BESClient/'], File['/etc/opt/BESClient/actionsite.afxm']],
+    provider   => 'rpm',
     allowcdrom => true,
   }
   service { 'besclient':
-    ensure => 'running',
-    enable => true,
+    ensure  => 'running',
+    enable  => true,
     require => Package['BESAgent'],
   }
 }
